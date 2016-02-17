@@ -1,0 +1,10 @@
+{
+  "name": "angular-ui-router-previous",
+  "version": "0.1.0",
+  "license" : "MIT",
+  "main": "./release/previous.js",
+  "dependencies": {
+    "angular": "^1.2.0",
+    "angular-ui-router": "^0.2.8"
+  }
+}
