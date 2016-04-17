@@ -31,10 +31,17 @@
     }
 
     /**
-     * Go to the previous state.
+     * Go to the previous state or a default state.
+     *
+     * @param defaultState
+     * @param defaultParams
      */
-    function go() {
-      $state.go(previousState.name, previousState.params);
+    function go(defaultState, defaultParams) {
+      if (previousState.name) {
+        $state.go(previousState.name, previousState.params);
+      } else {
+        $state.go(defaultState, defaultParams);
+      }
     }
   }
 
@@ -42,6 +49,7 @@
    * Run.
    *
    * @param $previousState
+   * @ngInject
    */
   function run($previousState) {
     $previousState.initialize();
@@ -50,6 +58,5 @@
   angular.module("ui.router.previous", []);
   angular.module("ui.router.previous").service("$previousState", $previousState);
   angular.module("ui.router.previous").run(run);
-
 
 })(angular);
