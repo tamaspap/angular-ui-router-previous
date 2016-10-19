@@ -11,7 +11,8 @@ function $previousState($rootScope, $state) {
     name: null,
     params: null,
     initialize: initialize,
-    go: go
+    go: go,
+    reset: reset,
   };
 
   return previousState;
@@ -40,6 +41,14 @@ function $previousState($rootScope, $state) {
     } else {
       $state.go(defaultState, defaultParams);
     }
+  }
+  
+  /**
+   * reset to default values.
+   */
+  function reset() {
+    previousState.name = null;
+    previousState.params = null;
   }
 }
 
